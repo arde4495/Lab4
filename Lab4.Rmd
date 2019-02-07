@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 ---
 title: "Lab 04 Not Team 1"
 author: "David Orozco, Arie del Valle, Ethan Schacht, Ryan Tate"
@@ -73,6 +74,24 @@ ggplot(data = babies) +
 
   * I found that there were born premature babies born from mothers who did not smoke than mothers who did smoke. This could be very misleading though as the number mothers who did not smoke during pregnancy is probably much larger than mothers who did smoke.
   
+Lab 4
+
+### Anderson's Graph
+****
+
+```{r}
+ggplot(data = babies, mapping = aes(x = med, y = bwtoz)) +
+  geom_smooth(se = FALSE, method = "lm") +
+  facet_grid(~smoke) +
+  ggtitle("Mother's Education vs Birth Weight") +
+  xlab("Mothers Education Level") +
+  ylab("Birth Weight")
+```
+
+* I created this graph using geom smooth and a facet grid. With the facet grid you can measure the differences in weight of the babies from mothers who smoke and don't smoke. The x axis is the education level and the y axis is the birth weight. 
+
+* I found that with my graph the weights of the babies from mothers who smoke are significantly lower. Also mothers with higher education seem to have slightly larger babies.
+
 ****
 ###Team Plot #1
 ****
@@ -87,3 +106,46 @@ ggplot(data = babies, mapping = aes(x = gestation, y = bwtoz)) +
   ggtitle("Gestational Age vs. Birth Weight for 1038 Babies", subtitle = "0 = Mom Doesn't Smoke; 1 = Mom Smokes")
 ```
 
+****
+###Preliminary Question Plots
+****
+
+```{r, echo=FALSE, error=FALSE, warning=FALSE}
+ggplot(data = babies) +
+  geom_histogram(mapping = aes(x = mage, fill = smoke), binwidth = 0.5)  +
+  facet_wrap(~smoke) + 
+  ggtitle("Mother's age for smokers and non-smokers.", subtitle = "0 = never smokes; 1 = smokes now; NA = no answer")
+```
+
+* This graph compares the age at which mothers gave birth and seperates them into smokers and non-smokers.
+
+* The graph is useful for seeing if age has any indicator on whether or not a mother will be more likely to smoke will pregnant if she is older or younger.
+
+```{r, echo=FALSE, error=FALSE, warning=FALSE}
+ggplot(data = babies) +
+  geom_histogram(mapping = aes(x = med, fill = smoke), binwidth = 0.5)  +
+  facet_wrap(~smoke) +
+  ggtitle("Mother's education for smokers and non-smokers.", subtitle = "0 = never smokes; 1 = smokes now; NA = no answer") +
+  xlab("mothers education:
+       0 =  less than 8th grade
+       1 =  8th to 12th grade. did not graduate high school
+       2 = high school graduate, no other schooling
+       3 = high school graduate + trade school
+       4 = high school graduate + some college
+       5 = college graduate
+       6,7 = trade school but unclear if graduated from high school
+       9 = unknown
+       ")
+```
+* This graph compares the education of mothers who smoked while pregnant.
+
+* The graph could be useful for deciding if mothers were more likely to smoke while pregnant if they had less of an education, or a different type of education.
+
+```{r, echo=FALSE, error=FALSE, warning=FALSE}
+ggplot(data = babies) +
+  geom_histogram(mapping = aes(x = parity, fill = smoke), binwidth = 0.5)  +
+  facet_wrap(~smoke) + 
+  ggtitle("Distribution of mother's previous births for smokers and non-smokers.", subtitle = "0 = never smokes; 1 = smokes now; NA = no answer")
+ ```
+
+ * This graph divides mothers into groups depending on the amount of times they have given birth and trys to examine whether more births led to women not smoking while pregnant.
