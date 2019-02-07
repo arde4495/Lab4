@@ -58,3 +58,16 @@ ggplot(data = babies, mapping = aes(x = mpregwt, y = bwtoz), color = "green") +
 * I created this graph using geom_point and geom_smooth to plot mothers' weights before pregnancy vs babys' birth weights.  I also used facets to separate this correlation by smoking habits to see if smoking affected the correlation between the two weights.  I used xlab, ylab, ggtitle, subtitle, and non-default colors and shapes to enhance my graph's aesthetic appeal.
 
 * I found that there is a minor positive correlation between mothers' pre-pregnancy weights and babys' birth weights.  However, whether or not the mom never smokes or smokes now has no affect on this correlation.
+
+### Ryan's Graph
+****
+
+```{r, echo=FALSE, error=FALSE, warning=FALSE}
+ggplot(data = babies) +
+  geom_histogram(mapping = aes(x = Premature, fill = smoke), binwidth = 0.5) +
+  facet_wrap(~smoke)
+  ```
+
+  *I created this graph with geom_histogram to plot the amount of premature babies born for mother's who smoked and mothers who did not smoke during pregnancy.
+
+  * I found that there were born premature babies born from mothers who did not smoke than mothers who did smoke. This could be very misleading though as the number mothers who did not smoke during pregnancy is probably much larger than mothers who did smoke.
