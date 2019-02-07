@@ -11,7 +11,7 @@ babies <- read_csv("https://raw.githubusercontent.com/ervance1/Sp2018-Data-Scien
 babies <- rename(babies, bwtoz = `bwt/oz`)
 ```
 
-#### David Orozco
+### David's Graph
 ****
 ```{r, echo=FALSE}
 
@@ -26,4 +26,20 @@ ggplot(data = babies, mapping = aes(x = bwtoz)) +
 * I used geom_density to show the distribution of birht wieght in ounces. I used facet command to show differences in the distribution based on whether or not the baby was premature. ( 1 is born before gestational age of 270, 0 is after 270)
 
 * The mean of the distribution for birth weight of premature babies (~100) is the smallest of the three distributions. 
+
+### Arie's Graph
+****
+```{r, echo=FALSE, error=FALSE, warning=FALSE}
+ggplot(data = babies)+
+  geom_jitter(mapping = aes(x = mage, y = bwtoz))+
+  ggtitle("Mothers age vs. Birth weight")+
+  xlab("Mother's Age")+
+  ylab("Birth Wegiht")
+
+```
+
+* I created this plot using geom_jitter.I set x = mother's age and y = birth weight in aesthetic. I usd ggtitle, xlab, and ylab to label all axis and the graph.
+
+* From this graph I found that between age's 20-30, the birth weight is more conssitant. Then, after age 30, the graph shows that birth weight is less conssisent.
+
 
