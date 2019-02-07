@@ -18,7 +18,8 @@ babies <- rename(babies, bwtoz = `bwt/oz`)
 ggplot(data = babies, mapping = aes(x = bwtoz)) +
   
   geom_density(size = 1) +
-  facet_grid(. ~ Premature)
+  facet_grid(. ~ Premature)+
+  ggtitle("Weight Distribution for Premature Babies",subtitle = " 1 = premature, 0 = not premature NA = no answer")
 
 ```
 
