@@ -1,5 +1,5 @@
 ---
-title: "Lab 04 Dave"
+title: "Lab 04 Not Team 1"
 author: "David Orozco, Arie del Valle, Ethan Schacht, Ryan Tate"
 date: "February 8, 2019"
 output: html_document
@@ -42,4 +42,19 @@ ggplot(data = babies)+
 
 * From this graph I found that between age's 20-30, the birth weight is more conssitant. Then, after age 30, the graph shows that birth weight is less conssisent.
 
+### Ethan's Graph
+****
 
+```{r, echo=FALSE, error=FALSE, warning=FALSE}
+ggplot(data = babies, mapping = aes(x = mpregwt, y = bwtoz), color = "green") +
+  geom_point(color = "red", shape = 8) +
+  geom_smooth(se = FALSE, method = "lm", color = "black") +
+  facet_wrap(~smoke, nrow = 2) +
+  xlab("Mother's Weight Before Pregnancy (Pounds)") +
+  ylab("Baby's Birth Weight (Ounces)") +
+  ggtitle("Mother's Weight vs Baby's Weight by Smoking Freq.", subtitle = "0 = never smokes; 1 = smokes now; NA = no answer")
+```
+
+* I created this graph using geom_point and geom_smooth to plot mothers' weights before pregnancy vs babys' birth weights.  I also used facets to separate this correlation by smoking habits to see if smoking affected the correlation between the two weights.  I used xlab, ylab, ggtitle, subtitle, and non-default colors and shapes to enhance my graph's aesthetic appeal.
+
+* I found that there is a minor positive correlation between mothers' pre-pregnancy weights and babys' birth weights.  However, whether or not the mom never smokes or smokes now has no affect on this correlation.
