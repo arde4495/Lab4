@@ -73,6 +73,24 @@ ggplot(data = babies) +
 
   * I found that there were born premature babies born from mothers who did not smoke than mothers who did smoke. This could be very misleading though as the number mothers who did not smoke during pregnancy is probably much larger than mothers who did smoke.
   
+Lab 4
+
+### Anderson's Graph
+****
+
+```{r}
+ggplot(data = babies, mapping = aes(x = med, y = bwtoz)) +
+  geom_smooth(se = FALSE, method = "lm") +
+  facet_grid(~smoke) +
+  ggtitle("Mother's Education vs Birth Weight") +
+  xlab("Mothers Education Level") +
+  ylab("Birth Weight")
+```
+
+* I created this graph using geom smooth and a facet grid. With the facet grid you can measure the differences in weight of the babies from mothers who smoke and don't smoke. The x axis is the education level and the y axis is the birth weight. 
+
+* I found that with my graph the weights of the babies from mothers who smoke are significantly lower. Also mothers with higher education seem to have slightly larger babies.
+
 ****
 ###Team Plot #1
 ****
