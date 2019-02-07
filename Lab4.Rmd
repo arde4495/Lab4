@@ -9,6 +9,7 @@ output: html_document
 library(tidyverse)
 babies <- read_csv("https://raw.githubusercontent.com/ervance1/Sp2018-Data-Science-repo/master/babies2a.dat")
 babies <- rename(babies, bwtoz = `bwt/oz`)
+babies <- na.omit(babies)
 ```
 
 ### David's Graph
@@ -58,3 +59,16 @@ ggplot(data = babies, mapping = aes(x = mpregwt, y = bwtoz), color = "green") +
 * I created this graph using geom_point and geom_smooth to plot mothers' weights before pregnancy vs babys' birth weights.  I also used facets to separate this correlation by smoking habits to see if smoking affected the correlation between the two weights.  I used xlab, ylab, ggtitle, subtitle, and non-default colors and shapes to enhance my graph's aesthetic appeal.
 
 * I found that there is a minor positive correlation between mothers' pre-pregnancy weights and babys' birth weights.  However, whether or not the mom never smokes or smokes now has no affect on this correlation.
+
+###Team Plot #1
+****
+
+```{r, echo=FALSE, error=FALSE, warning=FALSE}
+ggplot(data = babies, mapping = aes(x = gestation, y = bwtoz)) +
+  geom_point(color = "green") +
+  geom_smooth(se = FALSE, method = "lm") +
+  facet_wrap(~smoke) +
+  xlab("Gestational Age (Days)") +
+  ylab("Birth Weight (Ounces)") +
+  ggtitle("Gestational Age vs. Birth Weight for 1038 Babies", subtitle = "0 = Mom Doesn't Smoke; 1 = Mom Smokes")
+```
