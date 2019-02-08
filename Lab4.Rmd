@@ -7,7 +7,7 @@ output: html_document
 
 ```{r , include =FALSE}
 library(tidyverse)
-
+library(reshape)
 babies <- read_csv("https://raw.githubusercontent.com/ervance1/Sp2018-Data-Science-repo/master/babies2a.dat")
 
 babies$premature <- factor(babies$Premature, labels = c("Not Premature", "Premature"))
