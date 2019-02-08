@@ -12,7 +12,8 @@ babies <- read_csv("https://raw.githubusercontent.com/ervance1/Sp2018-Data-Scien
 
 babies$premature <- factor(babies$Premature, labels = c("Not Premature", "Premature"))
 
-babies$smoke <- factor(babies$smoke, labels = c("never smokes", "smokes now"))
+babies$smoke <- factor(babies$smoke, labels = c("never smokes", "smokes 
+now"))
 
 babies <- na.omit(babies)
 ```
@@ -28,7 +29,7 @@ ggplot(data = babies, mapping = aes(x =  `bwt/oz`)) +
 
 ```
 
-* I used geom_density to show the distribution of birht wieght in ounces. I used facet command to show differences in the distribution based on whether or not the baby was premature. ( 1 is born before gestational age of 270, 0 is after 270)
+* I used geom_density to show the distribution of birth wieght in ounces. I used facet command to show differences in the distribution based on whether or not the baby was premature. ( 1 is born before gestational age of 270, 0 is after 270)
 
 * The mean of the distribution for birth weight of premature babies (~100) is the smallest of the three distributions. 
 
@@ -43,7 +44,7 @@ ggplot(data = babies)+
 
 ```
 
-* I created this plot using geom_jitter.I set x = mother's age and y = birth weight in aesthetic. I usd ggtitle, xlab, and ylab to label all axis and the graph.
+* I created this plot using geom_jitter to compare a mother's age vs their birth weight. I set x = mother's age and y = birth weight in aesthetic. I used ggtitle, xlab, and ylab to label all axis and the graph.
 
 * From this graph I found that between age's 20-30, the birth weight is more conssitant. Then, after age 30, the graph shows that birth weight is less conssisent.
 
@@ -126,12 +127,23 @@ cor(babies$gestation, babies$`bwt/oz`)
 
 * Findings: This graph answers our second main question, which is "Do mothers' smoking habits affect the correlation between their babys' gestational age and birth weight?" The surgeon general's assumption was that newborns of mothers who smoke have smaller birth weights as gestational age rises than newborns of mothers who don't smoke.  This graph appears to prove otherwise because the smoker line of best fit has a steeper positive slope than the non-smoker line of best fit, meaning birth weight increases as gestational age rises at a slightly faster rate for newborns of mothers who smoke.  Overall, there is a near- moderate positive correlation between gestational age and birth weight at an R value of 0.393.
 
+### Team Plot #2
+****
+
+```{r, echo =FALSE, error=FALSE, warning=FALSE}
+ggplot(data = babies)+
+  geom_bar(mapping = aes(x = premature), color = "black", fill = "blue")+
+  facet_wrap(~smoke)+
+  ggtitle("Count of Premature Births of Smokers vs. Non-Smokers")
+```
+
+* Findings: This graph answers our first question, "Do mothers' smoking habits affect the presence of premature births?" The surgeon general's assumption was that mothers who smoked have increased rates of giving birth prematuraly. Our graph displays little correlation with this assumption. Instead it tells us that women who smoke give birth to less babies overall. However, there is a sligtht increase of premature births compared to women who do not smoke. Though it is not significant enough to say that smoking increases one's chances of giving birth prematuraly.
+
 ```{r, echo=FALSE, error=FALSE, warning=FALSE}
 
 ggplot(data = babies, mapping = aes(x = `bwt/oz`))+geom_density(size = .8, color = "blue") + facet_grid(smoke~premature)
 ```
 
-****
 ###Preliminary Question Plots
 ****
 
