@@ -11,6 +11,23 @@ babies <- read_csv("https://raw.githubusercontent.com/ervance1/Sp2018-Data-Scien
 babies <- rename(babies, bwtoz = `bwt/oz`)
 babies <- na.omit(babies)
 ```
+### Overall Questions
+****
+* Do mothers that smoke have increased rates of preaturedelivery(before 270 days)? This question is important because we want to better understand causes of premature births and if there is a correlation between that a smoking during pregnancy. Discovering this correlation can help with taking preventative measures to avoiding premature births
+* Do the newborns of mothers who smoke have smaller birth weights at every gestational age?
+
+###Team Plot #1
+****
+
+```{r, echo=FALSE, error=FALSE, warning=FALSE}
+ggplot(data = babies, mapping = aes(x = gestation, y = bwtoz)) +
+  geom_point(color = "green") +
+  geom_smooth(se = FALSE, method = "lm") +
+  facet_wrap(~smoke) +
+  xlab("Gestational Age (Days)") +
+  ylab("Birth Weight (Ounces)") +
+  ggtitle("Gestational Age vs. Birth Weight for 1038 Babies", subtitle = "0 = Mom Doesn't Smoke; 1 = Mom Smokes")
+```
 
 ### David's Graph
 ****
@@ -80,7 +97,7 @@ Lab 4
 ****
 
 ```{r}
-ggplot(data = babies, mapping = aes(x = med, y = bwtoz)) +
+ggplot(data = babies, mapping = aes(x = med, y = bwtoz))+
   geom_smooth(se = FALSE, method = "lm") +
   facet_grid(~smoke) +
   ggtitle("Mother's Education vs Birth Weight") +
@@ -114,3 +131,4 @@ cor(babies$gestation, babies$bwtoz)
 ```
 
 * Findings: This graph answers our second main question, which is "Do mothers' smoking habits affect the correlation between their babys' gestational age and birth weight?" The surgeon general's assumption was that newborns of mothers who smoke have smaller birth weights as gestational age rises than newborns of mothers who don't smoke.  This graph appears to prove otherwise because the smoker line of best fit has a steeper positive slope than the non-smoker line of best fit, meaning birth weight increases as gestational age rises at a slightly faster rate for newborns of mothers who smoke.  Overall, there is a near- moderate positive correlation between gestational age and birth weight at an R value of 0.393.
+
