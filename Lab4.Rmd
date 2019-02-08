@@ -144,6 +144,9 @@ ggplot(data = babies)+
 ggplot(data = babies, mapping = aes(x = `bwt/oz`))+geom_density(size = .8, color = "blue") + facet_grid(smoke~premature)
 ```
 
+* Findings: This graph shows the distribution of of birth weight, relating it to premature birth and mothers that smoke. It appears that the birth weight of non-premature babies is lower, and the birth weight of premature babies is higher, for mothers that do smoke. While this is the opposite case for mothers that don't smoke.
+
+
 ###Preliminary Question Plots
 ****
 
