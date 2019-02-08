@@ -171,10 +171,10 @@ ggplot(data = babies) +
   geom_histogram(mapping = aes(x = parity, fill = smoke), binwidth = 0.5)  +
   facet_wrap(~smoke) + 
   ggtitle("Distribution of mother's previous births for smokers and non-smokers.", subtitle = "0 = never smokes; 1 = smokes now; NA = no answer")
- ```
-
+```
+ 
  * This graph divides mothers into groups depending on the amount of times they have given birth and trys to examine whether more births led to women not smoking while pregnant.
-=======
+ 
 ### Who Did what?
 ****
 
