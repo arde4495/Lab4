@@ -193,7 +193,7 @@ ggplot(data = babies) +
 
 * David: Individual graph + analysis, Team graph 2 + analysis, Data restructure and formating.
 
-* Ethan:
+* Ethan: Individual graph + analysis, Team graph 1 + analysis, questions/importance, recommendations.
 
 * Ryan:
 
