@@ -15,6 +15,9 @@ babies$premature <- factor(babies$Premature, labels = c("Not Premature", "Premat
 babies$smoke <- factor(babies$smoke, labels = c("never smokes", "smokes 
 now"))
 
+babies$Med <- factor(babies$med, labels = c("less than 8th grade", "8th to 12th grade did not graduate high school", "high school graduate, no other schooling","high school graduate + trade school","high school graduate + some college", "college graduate", "trade school but unclear if graduated from high school"))
+
+
 babies <- na.omit(babies)
 ```
 
@@ -165,17 +168,7 @@ ggplot(data = babies) +
 ggplot(data = babies) +
   geom_histogram(mapping = aes(x = med, fill = smoke), binwidth = 0.5)  +
   facet_wrap(~smoke) +
-  ggtitle("Mother's education") +
-  xlab("mothers education:
-       0 =  less than 8th grade
-       1 =  8th to 12th grade. did not graduate high school
-       2 = high school graduate, no other schooling
-       3 = high school graduate + trade school
-       4 = high school graduate + some college
-       5 = college graduate
-       6,7 = trade school but unclear if graduated from high school
-       9 = unknown
-       ")
+  ggtitle("Mother's education")
 ```
 * This graph compares the education of mothers who smoked while pregnant.
 
@@ -183,9 +176,9 @@ ggplot(data = babies) +
 
 ```{r, echo=FALSE, error=FALSE, warning=FALSE}
 ggplot(data = babies) +
-  geom_histogram(mapping = aes(x = parity, fill = smoke), binwidth = 0.5)  +
+  geom_bar(mapping = aes(x = parity, fill = smoke), binwidth = 0.5)  +
   facet_wrap(~smoke) + 
-  ggtitle("Distribution of mother's previous births for smokers and non-smokers.", subtitle = "0 = never smokes; 1 = smokes now; NA = no answer")
+  ggtitle("Distribution of mother's previous births for smokers and non-smokers.")
 ```
  
  * This graph divides mothers into groups depending on the amount of times they have given birth and trys to examine whether more births led to women not smoking while pregnant.
@@ -197,7 +190,7 @@ ggplot(data = babies) +
 
 * Anderson:
 
-* David:
+* David: Individual graph + analysis, Team graph 2 + analysis, Data restructure and formating.
 
 * Ethan:
 
