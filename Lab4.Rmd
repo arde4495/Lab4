@@ -148,6 +148,10 @@ ggplot(data = babies, mapping = aes(x = `bwt/oz`))+geom_density(size = .8, color
 
 * Findings: This graph answers our first question, "Do mothers' smoking habits affect the presence of premature births?" The surgeon general's assumption was that mothers who smoked have increased rates of giving birth prematuraly. Our graph displays little correlation with this assumption. Instead it tells us that women who smoke give birth to less babies overall. However, there is a sligtht increase of premature births compared to women who do not smoke. Though it is not significant enough to say that smoking increases one's chances of giving birth prematuraly.
 
+###Recommendations
+****
+* We recommend that mothers disregard the surgeon general's assertions, as there is little to no statistical evidence that smoking effects premature deliveries or birth weights per gestational age.  However, this study does not take into account other confounding variables that may be at play such as alcohol use, drug use, etc.  Be very cautious about your overall health while being pregnant.
+
 
 ###Preliminary Question Plots
 ****
