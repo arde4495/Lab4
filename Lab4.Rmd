@@ -186,13 +186,13 @@ ggplot(data = babies) +
 ### Who Did what?
 ****
 
-* Arie:
+* Arie: Created individual graph, help write findings for team plot #2. Created repo on github and turned in project.
 
-* Anderson:
+* Anderson: Created individual graph and comments
 
 * David: Individual graph + analysis, Team graph 2 + analysis, Data restructure and formating.
 
-* Ethan:
+* Ethan: 
 
-* Ryan:
+* Ryan: Created individual graph and preliminary graphs
 
