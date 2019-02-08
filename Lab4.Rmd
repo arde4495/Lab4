@@ -28,20 +28,22 @@ babies <- na.omit(babies)
 ggplot(data = babies, mapping = aes(x =  `bwt/oz`)) +
   geom_density(size = 1) +
   facet_grid(. ~ premature)+
-  ggtitle("Weight Distribution for Premature Babies")
+  ggtitle("Weight Distribution for Premature Babies")+
+  xlab("Birth Weight(Ounces)")
+
 
 ```
 
-* I used geom_density to show the distribution of birth wieght in ounces. I used facet command to show differences in the distribution based on whether or not the baby was premature. ( 1 is born before gestational age of 270, 0 is after 270)
+* I used geom_density to show the distribution of birth weight in ounces. I used facet command to show differences in the distribution based on whether or not the baby was premature. ( Premature is born before gestational age of 270)
 
-* The mean of the distribution for birth weight of premature babies (~100) is the smallest of the three distributions. 
+* The mean of the distribution for birth weight of premature babies (~100) is the smallest of the two distributions. 
 
 ### Arie's Graph
 ****
 ```{r, echo=FALSE, error=FALSE, warning=FALSE}
 ggplot(data = babies)+
   geom_jitter(mapping = aes(x = mage, y = `bwt/oz`))+
-  ggtitle("Mothers age vs. Birth weight")+
+  ggtitle("Mothers' age vs. Birth weight")+
   xlab("Mother's Age")+
   ylab("Birth Wegiht")
 
@@ -49,7 +51,7 @@ ggplot(data = babies)+
 
 * I created this plot using geom_jitter to compare a mother's age vs their birth weight. I set x = mother's age and y = birth weight in aesthetic. I used ggtitle, xlab, and ylab to label all axis and the graph.
 
-* From this graph I found that between age's 20-30, the birth weight is more conssitant. Then, after age 30, the graph shows that birth weight is less conssisent.
+* From this graph I found that between ages 20-30, the birth weight is more consistent. Then, after age 30, the graph shows that birth weight is less consistant.
 
 ### Ethan's Graph
 ****
@@ -60,9 +62,11 @@ ggplot(data = babies, mapping = aes(x = mpregwt, y = `bwt/oz`), color = "green")
   geom_point(color = "red", shape = 8) +
   geom_smooth(se = FALSE, method = "lm", color = "black") +
   facet_wrap(~smoke, nrow = 2) +
-  xlab("Mother's Weight Before Pregnancy (Pounds)") +
+  xlab("Mothers' Weight Before Pregnancy (Pounds)") +
   ylab("Baby's Birth Weight (Ounces)") +
-  ggtitle("Mother's Weight vs Baby's Weight by Smoking Freq.")
+  ggtitle("Mothers' Weight vs Baby's Weight by Smoking Freq.")
+```
+```{r, include=FALSE}
 cor(babies$mpregwt,babies$`bwt/oz`)
 
 ```
@@ -77,11 +81,11 @@ cor(babies$mpregwt,babies$`bwt/oz`)
 
 ```{r, echo=FALSE, error=FALSE, warning=FALSE}
 ggplot(data = babies) +
-  geom_histogram(mapping = aes(x = Premature, fill = smoke), binwidth = 0.5) +
+  geom_bar(mapping = aes(x = premature),fill = "blue") +
   facet_wrap(~smoke)
 ```
 
-  * I created this graph with geom_histogram to plot the amount of premature babies born for mother's who smoked and mothers who did not smoke during pregnancy.
+  * I created this graph with geom_histogram to plot the amount of premature babies born for mothers who smoked and mothers who did not smoke during pregnancy.
 
   * I found that there were born premature babies born from mothers who did not smoke than mothers who did smoke. This could be very misleading though as the number mothers who did not smoke during pregnancy is probably much larger than mothers who did smoke.
   
@@ -125,6 +129,8 @@ ggplot(data = babies, mapping = aes(x = gestation, y = `bwt/oz`)) +
   ylab("Birth Weight (Ounces)") +
 
   ggtitle("Gestational Age vs. Birth Weight",subtitle =  "Data from 1038 Babies")
+```
+```{r,include=FALSE}
 cor(babies$gestation, babies$`bwt/oz`)
 ```
 
@@ -133,21 +139,13 @@ cor(babies$gestation, babies$`bwt/oz`)
 ### Team Plot #2
 ****
 
-```{r, echo =FALSE, error=FALSE, warning=FALSE}
-ggplot(data = babies)+
-  geom_bar(mapping = aes(x = premature), color = "black", fill = "blue")+
-  facet_wrap(~smoke)+
-  ggtitle("Count of Premature Births of Smokers vs. Non-Smokers")
-```
-
-* Findings: This graph answers our first question, "Do mothers' smoking habits affect the presence of premature births?" The surgeon general's assumption was that mothers who smoked have increased rates of giving birth prematuraly. Our graph displays little correlation with this assumption. Instead it tells us that women who smoke give birth to less babies overall. However, there is a sligtht increase of premature births compared to women who do not smoke. Though it is not significant enough to say that smoking increases one's chances of giving birth prematuraly.
 
 ```{r, echo=FALSE, error=FALSE, warning=FALSE}
 
 ggplot(data = babies, mapping = aes(x = `bwt/oz`))+geom_density(size = .8, color = "blue") + facet_grid(smoke~premature)
 ```
 
-* Findings: This graph shows the distribution of of birth weight, relating it to premature birth and mothers that smoke. It appears that the birth weight of non-premature babies is lower, and the birth weight of premature babies is higher, for mothers that do smoke. While this is the opposite case for mothers that don't smoke.
+* Findings: This graph answers our first question, "Do mothers' smoking habits affect the presence of premature births?" The surgeon general's assumption was that mothers who smoked have increased rates of giving birth prematuraly. Our graph displays little correlation with this assumption. Instead it tells us that women who smoke give birth to less babies overall. However, there is a sligtht increase of premature births compared to women who do not smoke. Though it is not significant enough to say that smoking increases one's chances of giving birth prematuraly.
 
 
 ###Preliminary Question Plots
@@ -157,18 +155,20 @@ ggplot(data = babies, mapping = aes(x = `bwt/oz`))+geom_density(size = .8, color
 ggplot(data = babies) +
   geom_histogram(mapping = aes(x = mage, fill = smoke), binwidth = 0.5)  +
   facet_wrap(~smoke) + 
-  ggtitle("Mother's age for smokers and non-smokers.")
+  ggtitle("Mothers' age for smokers and non-smokers.")+
+  xlab("Mothers")
+
 ```
 
 * This graph compares the age at which mothers gave birth and seperates them into smokers and non-smokers.
-
+ 
 * The graph is useful for seeing if age has any indicator on whether or not a mother will be more likely to smoke will pregnant if she is older or younger.
 
 ```{r, echo=FALSE, error=FALSE, warning=FALSE}
 ggplot(data = babies) +
   geom_histogram(mapping = aes(x = med, fill = smoke), binwidth = 0.5)  +
   facet_wrap(~smoke) +
-  ggtitle("Mother's education")
+  ggtitle("Mothers'education")
 ```
 * This graph compares the education of mothers who smoked while pregnant.
 
