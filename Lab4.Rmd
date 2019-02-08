@@ -22,15 +22,13 @@ babies <- na.omit(babies)
 ****
 ```{r, echo=FALSE}
 
-ggplot(data = babies, mapping = aes(x =  `bwt/oz`)) +
+ggplot(data = babies, mapping = aes(x = `bwt/oz`)) +
   geom_density(size = 1) +
-<<<<<<< HEAD
-  facet_grid(. ~ Premature)+
-  ggtitle("Weight Distribution for Premature Babies",subtitle = " 1 = premature, 0 = not premature")
-=======
-  facet_grid(. ~ premature)+
+  facet_grid(. ~ Premature) +
+  ggtitle("Weight Distribution for Premature Babies",subtitle = " 1 = premature, 0 = not premature") +
+  facet_grid(. ~ premature) +
   ggtitle("Weight Distribution for Premature Babies")
->>>>>>> master
+#>>>>>>> master
 
 ```
 
@@ -71,7 +69,7 @@ cor(babies$mpregwt,babies$`bwt/oz`)
 
 * I created this graph using geom_point and geom_smooth to plot mothers' weights before pregnancy vs babys' birth weights.  I also used facets to separate this correlation by smoking habits to see if smoking affected the correlation between the two weights.  I used xlab, ylab, ggtitle, subtitle, and non-default colors and shapes to enhance my graph's aesthetic appeal.
 
-* I found that there is a minor positive correlation between mothers' pre-pregnancy weights and babys' birth weights.  However, whether or not the mom never smokes or smokes now has no affect on this correlation.
+* I found that there is a minor positive correlation between mothers' pre-pregnancy weights and babys' birth weights with an R value of 0.202.  However, whether or not the mom never smokes or smokes now has no affect on this correlation.
 
 
 ### Ryan's Graph
@@ -130,7 +128,7 @@ ggplot(data = babies, mapping = aes(x = gestation, y = `bwt/oz`)) +
 cor(babies$gestation, babies$`bwt/oz`)
 ```
 
-* Findings: This graph answers our second main question, which is "Do mothers' smoking habits affect the correlation between their babys' gestational age and birth weight?" The surgeon general's assumption was that newborns of mothers who smoke have smaller birth weights as gestational age rises than newborns of mothers who don't smoke.  This graph appears to prove otherwise because the smoker line of best fit has a steeper positive slope than the non-smoker line of best fit, meaning birth weight increases as gestational age rises at a slightly faster rate for newborns of mothers who smoke.  Overall, there is a near- moderate positive correlation between gestational age and birth weight at an R value of 0.393.
+* Findings: This graph answers our second main question, which is "Do mothers' smoking habits affect the correlation between their babys' gestational age and birth weight?" The surgeon general's assumption was that newborns of mothers who smoke have smaller birth weights as gestational age rises than newborns of mothers who don't smoke.  This graph, if anything, appears to prove otherwise because the smoker line of best fit has a steeper positive slope than the non-smoker line of best fit, meaning birth weight increases as gestational age rises at a slightly faster rate for newborns of mothers who smoke.  Overall, there is a near- moderate positive correlation between gestational age and birth weight at an R value of 0.393.
 
 ### Team Plot #2
 ****
@@ -151,6 +149,9 @@ ggplot(data = babies, mapping = aes(x = `bwt/oz`))+geom_density(size = .8, color
 
 * Findings: This graph shows the distribution of of birth weight, relating it to premature birth and mothers that smoke. It appears that the birth weight of non-premature babies is lower, and the birth weight of premature babies is higher, for mothers that do smoke. While this is the opposite case for mothers that don't smoke.
 
+###Recommendations
+****
+* We recommend that mothers disregard the surgeon general's assertions, as there is little to no statistical evidence that smoking effects premature deliveries or birth weights per gestational age.  However, this study does not take into account other confounding variables that may be at play such as alcohol use, drug use, etc.  Be very cautious about your overall health while being pregnant.
 
 ###Preliminary Question Plots
 ****
@@ -204,7 +205,7 @@ ggplot(data = babies) +
 
 * David:
 
-* Ethan:
+* Ethan: 
 
 * Ryan:
 
